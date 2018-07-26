@@ -1,23 +1,137 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { AppRegistry, StyleSheet, View, Text, Button, ScrollView } from 'react-native';
+import { createStackNavigator } from 'react-navigation';
+import { FontAwesome, Ionicons } from '@expo/vector-icons';
+import { Header, Icon } from 'react-native-elements'
 
-export default class App extends React.Component {
+
+class NavBar extends React.Component {
+render() {
+         return (
+             <View style={styles.navContainer}>
+                <View style={styles.navElements}>
+                  <Icon name='newspaper-o' type='font-awesome' color='#9B9B9B' size={36}
+                        onPress={() => navigate('News')} />
+                </View>
+                <View style={styles.navElements}>
+                  <Icon name='heartbeat' type='font-awesome' color='#9B9B9B' size={36}
+                        onPress={() => navigate('Home')} />
+                </View>
+                <View style={styles.navElements}>
+                  <Icon name='calendar-o' type='font-awesome' color='#9B9B9B' size={36}
+                        onPress={() => navigate('Schedule')} />
+                </View>
+                <View style={styles.navElements}>
+                  <Icon name='group' type='font-awesome' color='#9B9B9B' size={36}
+                        onPress={() => navigate('Team')} />
+                </View>
+              </View>
+         )
+ }
+}
+
+
+class HomeScreen extends React.Component {
+  static navigationOptions = {
+    title: 'Pulse',
+  };
+  render() {
+    const { navigate } = this.props.navigation;
+    return (
+      <View style={styles.appWrapper}>
+     // MAIN VIEW
+      <ScrollView>
+	    <Button
+		title="Go to News"
+		onPress={() =>
+		  navigate('News')
+		}
+	     />
+
+      </ScrollView>
+      //STICKY NAV BAR @ BOTTOM OF ALL SCREENS
+     <NavBar />
+     </View>
+
+    );
+  }
+}
+
+class NewsScreen extends React.Component {
+  static navigationOptions = {
+    title: 'Pulse',
+  };
+  render() {
+    const { navigate } = this.props.navigation;
+    return (
+      <View style={styles.appWrapper}>
+     // MAIN VIEW
+      <ScrollView>
+	    <Button
+		title="Go Back Home"
+		onPress={() =>
+		  navigate('Home')
+		}
+	     />
+
+      </ScrollView>
+      //STICKY NAV BAR @ BOTTOM OF ALL SCREENS
+     <NavBar />
+     </View>
+
+    );
+  }
+}
+
+class ScheduleScreen extends React.Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-        <Text>Changes you make will automatically reload.</Text>
-        <Text>Shake your phone to open the developer menu.</Text>
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+        <Text>I am your schedule</Text>
+     <NavBar />
       </View>
     );
   }
 }
 
+class TeamScreen extends React.Component {
+  render() {
+    return (
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+        <Text>I am a Team</Text>
+      </View>
+    );
+  }
+}
+
+
+
+// ALL THE DIFFERENT SCREENS DEFINED
+const NavStack =createStackNavigator({
+  Home: { screen: HomeScreen },
+  News: { screen: NewsScreen },
+  Schedule: { screen: ScheduleScreen },
+  Team: { screen: TeamScreen },
+  NavBar: { screen: NavBar },
+
+});
+
+export default NavStack;
+
+// STYLING HERE
 const styles = StyleSheet.create({
-  container: {
+ appWrapper: {
+    flex: 1
+  },
+  navContainer: {
+    flex: 0.15,
+    flexDirection: 'row'
+  },
+  navElements: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
+    backgroundColor: '#F8F8F9',
+    height: 80,
     justifyContent: 'center',
+    alignItems: 'center',
   },
 });
