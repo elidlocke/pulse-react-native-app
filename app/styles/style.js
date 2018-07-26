@@ -4,17 +4,22 @@ export default StyleSheet.create({
  appWrapper: {
     flex: 1
   },
-  navContainer: {
-    flex: 0.1,
-    flexDirection: 'row'
+ headerStyle: {
+  alignItems: 'center',
+  justifyContent: 'center',
+  height: 100,
+  backgroundColor: '#F7F7F7',
+  borderBottomWidth: 0.5,
+  borderColor: '#d6d7da',
+ },
+  headerTitle: {
+    fontWeight: 'bold',
+    fontSize: 25,
+    paddingTop: 25,
+    color: 'tomato'
   },
-  navElements: {
-    flex: 1,
-    backgroundColor: '#F8F8F9',
-    height: 50,
-    justifyContent: 'center',
+  mainView: {
     alignItems: 'center',
-  },
+    justifyContent: 'center',
+  }
 });
-
-

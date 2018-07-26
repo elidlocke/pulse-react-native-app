@@ -1,9 +1,20 @@
 import React from 'react';
 import { AppRegistry, StyleSheet, View, Text, Button, ScrollView } from 'react-native';
 import { FontAwesome, Ionicons } from '@expo/vector-icons';
+import { createStackNavigator } from "react-navigation";
 import { createBottomTabNavigator, BottomTabBar } from 'react-navigation-tabs';
-import { Header, Icon } from 'react-native-elements'
+import { Icon } from 'react-native-elements'
 import styles from './app/styles/style'
+
+class Header extends React.Component {
+     render () {
+       return (
+         <View style={styles.headerStyle}>
+	 <Text style={styles.headerTitle}>Pulse</Text>
+	 </View>
+       );	
+     }
+}
 
 class HomeScreen extends React.Component {
   static navigationOptions = {
@@ -11,8 +22,11 @@ class HomeScreen extends React.Component {
   };
   render() {
     return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Text>I am your pulse.</Text>
+      <View>
+        <Header />
+      	<View style={styles.mainView}>
+	  <Text>I am your pulse.</Text>
+        </View>
       </View>
     );
   }
@@ -21,8 +35,11 @@ class HomeScreen extends React.Component {
 class NewsScreen extends React.Component {
   render() {
     return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Text>I am BIG NEWS</Text>
+      <View>
+        <Header />
+      	<View style={styles.mainView}>
+	  <Text>I am BIG NEWS.</Text>
+        </View>
       </View>
     );
   }
@@ -31,8 +48,11 @@ class NewsScreen extends React.Component {
 class ScheduleScreen extends React.Component {
   render() {
     return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Text>I am your schedule</Text>
+      <View>
+        <Header />
+      	<View style={styles.mainView}>
+	  <Text>I am your schedule.</Text>
+        </View>
       </View>
     );
   }
@@ -41,8 +61,11 @@ class ScheduleScreen extends React.Component {
 class TeamScreen extends React.Component {
   render() {
     return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Text>I am a Team</Text>
+      <View>
+        <Header />
+      	<View style={styles.mainView}>
+	  <Text>Your Team is Awesome.</Text>
+        </View>
       </View>
     );
   }
@@ -77,8 +100,6 @@ const RootStack =createBottomTabNavigator(
           iconName = 'group';
 	  iconType = 'font-awesome';
         }
-        // You can return any component that you like here! We usually use an
-        // icon component from react-native-vector-icons
         return <Icon name={iconName} type={iconType} size={25} color={tintColor} />;
       },
     }),
