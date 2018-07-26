@@ -14,6 +14,7 @@ export default StyleSheet.create({
  },
   headerTitle: {
     fontWeight: 'bold',
+    fontFamily: 'TrebuchetMS',
     fontSize: 25,
     paddingTop: 25,
     color: 'tomato'

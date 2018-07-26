@@ -5,75 +5,12 @@ import { createStackNavigator } from "react-navigation";
 import { createBottomTabNavigator, BottomTabBar } from 'react-navigation-tabs';
 import { Icon } from 'react-native-elements'
 import styles from './app/styles/style'
+import Header from './app/components/Header'
+import HomeScreen from './app/screens/HomeScreen'
+import NewsScreen from './app/screens/NewsScreen'
+import ScheduleScreen from './app/screens/ScheduleScreen'
+import TeamScreen from './app/screens/TeamScreen'
 
-class Header extends React.Component {
-     render () {
-       return (
-         <View style={styles.headerStyle}>
-	 <Text style={styles.headerTitle}>Pulse</Text>
-	 </View>
-       );	
-     }
-}
-
-class HomeScreen extends React.Component {
-  static navigationOptions = {
-    title: 'Pulse',
-  };
-  render() {
-    return (
-      <View>
-        <Header />
-      	<View style={styles.mainView}>
-	  <Text>I am your pulse.</Text>
-        </View>
-      </View>
-    );
-  }
-}
-
-class NewsScreen extends React.Component {
-  render() {
-    return (
-      <View>
-        <Header />
-      	<View style={styles.mainView}>
-	  <Text>I am BIG NEWS.</Text>
-        </View>
-      </View>
-    );
-  }
-}
-
-class ScheduleScreen extends React.Component {
-  render() {
-    return (
-      <View>
-        <Header />
-      	<View style={styles.mainView}>
-	  <Text>I am your schedule.</Text>
-        </View>
-      </View>
-    );
-  }
-}
-
-class TeamScreen extends React.Component {
-  render() {
-    return (
-      <View>
-        <Header />
-      	<View style={styles.mainView}>
-	  <Text>Your Team is Awesome.</Text>
-        </View>
-      </View>
-    );
-  }
-}
-
-
-
-// ALL THE DIFFERENT SCREENS DEFINED
 const RootStack =createBottomTabNavigator(
   {
   News: NewsScreen,
