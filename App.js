@@ -6,6 +6,7 @@ import { createBottomTabNavigator, BottomTabBar } from 'react-navigation-tabs';
 import { Icon } from 'react-native-elements'
 import styles from './app/styles/style'
 import Header from './app/components/Header'
+import OnboardingScreen from './app/screens/OnboardingScreen'
 import HomeScreen from './app/screens/HomeScreen'
 import NewsScreen from './app/screens/NewsScreen'
 import ScheduleScreen from './app/screens/ScheduleScreen'
