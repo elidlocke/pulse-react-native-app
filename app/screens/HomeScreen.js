@@ -11,6 +11,8 @@ class HomeScreen extends React.Component {
   render() {
     let mood = 'Above Average'
     let riskFactor = 21
+    let dailyChange = 5
+    let weeklyChange = 24
     let conditionColor = ''
     return (
       <View>
@@ -66,16 +68,20 @@ class HomeScreen extends React.Component {
                <Text style={styles.dashRisk}>{riskFactor}%</Text>
 	     </View>
 	     <View style={styles.deltaChanges}>
-	       <View>
-	           <Icon name='arrow-up' type='font-awesome' size={30} color='gray'/>;
-	         <Text>	  
-	          24% Better since last week
+	       <View style={styles.deltaChange}>
+		  <View style={styles.iconWrapper}>
+	           <Icon name='arrow-up' type='font-awesome' size={30} color='#C8C7C7'/>;
+	  	  </View>
+	         <Text style={styles.dataTitle}>	  
+		  { dailyChange }% improvement in overall health since last week
 	         </Text>
 	      </View>
-	       <View>
-	         <Icon name='arrow-up' type='font-awesome' size={30} color='gray'/>;
-	       <Text>	  
-	        24% Better since last week
+	       <View style={styles.deltaChange}>
+		  <View style={styles.iconWrapper}>
+	           <Icon name='arrow-down' type='font-awesome' size={30} color='#C8C7C7'/>;
+	  	  </View>
+	       <Text style={styles.dataTitle}>	  
+		  { weeklyChange }% decrease in overall health since last week
 	       </Text>
 	    </View>
 	   </View>

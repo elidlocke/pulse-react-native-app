@@ -140,19 +140,19 @@ export default StyleSheet.create({
     color: 'gray',
   },
   dashRiskWrapper: {
-    borderWidth: 10,
-    borderColor: 'red',
     flexDirection: 'row',
-    justifyContent: 'space-between',
+  },
+  iconWrapper: {
+    paddingRight: 10,
   },
   dashOverallRisk: {
-    borderWidth: 5,
-    borderColor: 'blue',
     width: 150,
   },
   deltaChanges: {
-    borderWidth: 5,
-    borderColor: 'blue',
     width: 150,
+  },
+  deltaChange: {
+    flexDirection: 'row',
+    paddingBottom: 20,
   }
 });
