@@ -86,5 +86,73 @@ export default StyleSheet.create({
   inputsWrapper: {
     paddingLeft: 20,
     paddingRight: 20,
+  },
+  feelingFace: {
+    width: 150,
+    height: 130,
+  },
+  dashConditionWrapper: {
+    flexDirection: 'row',
+  },
+  dashFaceContainer: {
+    padding: 20,
+  },
+  dashTitle: {
+    paddingTop: 70,
+    fontFamily: 'Helvetica-Light',
+    textAlign: 'left',
+    fontSize: 18,
+    color: 'gray',
+  },
+  dashCondition: {
+    color: '#84D12D',
+    fontSize: 20,
+  },
+  dashRisk: {
+    color: '#84D12D',
+    fontSize: 50,
+    fontWeight: 'bold',
+    paddingTop: 10,
+  },
+  dataField: {
+    marginLeft: 20,
+    marginRight: 20,
+    paddingTop: 20,
+    paddingBottom: 20,
+    borderTopWidth: 1,
+    borderColor: '#D7D7D7',
+  },
+  activityCharts: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  fillChart: {
+    width: 100,
+    height: 100,
+  },
+  dataText: {
+    fontFamily: 'Helvetica-Light',
+    textAlign: 'center',
+    color: 'gray',
+  },
+  dataTitle: {
+    fontFamily: 'Helvetica-Light',
+    color: 'gray',
+  },
+  dashRiskWrapper: {
+    borderWidth: 10,
+    borderColor: 'red',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  dashOverallRisk: {
+    borderWidth: 5,
+    borderColor: 'blue',
+    width: 150,
+  },
+  deltaChanges: {
+    borderWidth: 5,
+    borderColor: 'blue',
+    width: 150,
   }
 });

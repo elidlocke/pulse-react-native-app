@@ -57,7 +57,6 @@ class TeamScreen extends React.Component {
 	    }}
             title="Invite to Care Circle"
             color='white'
-	    fontWeight='bold'
             buttonStyle={styles.buttonStyle}
           />
       </View>
