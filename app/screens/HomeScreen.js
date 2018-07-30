@@ -25,7 +25,7 @@ async function fetchData() {
 	}`;
 
 	const allHeartRates = await API.graphql(graphqlOperation(ListHeartRate));
-    console.log(allHeartRates);
+	return (allHeartRates);
 }
 
 class HomeScreen extends React.Component {
@@ -33,7 +33,10 @@ class HomeScreen extends React.Component {
     title: 'Pulse',
   };
   render() {
-    fetchData();
+    let dataPromise = fetchData();
+    dataPromise.then(function (data) {
+    	console.log(data);
+    });
     let mood = 'Above Average'
     let riskFactor = 21
     let dailyChange = 5
