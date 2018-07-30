@@ -32,33 +32,34 @@ async function fetchData() {
 class HeartChart extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { seconds: 0, data: null };
+        this.state = { seconds: 0 };
     }
-    updateData() {
+    update() {
         this.setState(prevState => ({
             seconds: prevState.seconds + 1,
-            data: prevState.seconds + 1
         }));
     }
     componentDidMount() {
         console.log('COMPONENTDIDMOUNT')
-        this.interval = setInterval(() => this.updateData(), 1000);
+        this.interval = setInterval(() => this.update(), 1000);
 	var timer = setInterval(() => {
-	  //console.log('I do not leak!');
         }, 1000);
     }
     componentWillUnmount() {
         clearInterval(this.interval);
     }
     render() {
+	let data = Array.from({length: 10}, () => Math.floor(Math.random() * 10));
         let dataPromise = fetchData();
         dataPromise.then(function (data) {
-    	    //console.log(data);
+    	    console.log(data);
+	}, function (error){
+	    console.error('oops');
         });
-	const data = Array.from({length: 40}, () => Math.floor(Math.random() * 40));
+	
         return (
 	   <View>
-		//<Text>{this.state.seconds}</Text>
+		<Text>{this.state.data}</Text>
 	   <LineChart
                 style={styles.graphStyles}
                 data={ data }
