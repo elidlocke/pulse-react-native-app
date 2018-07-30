@@ -4,14 +4,12 @@ import { Icon } from 'react-native-elements';
 import Header from '../components/Header'
 import styles from '../styles/style'
 import awsConfig from '../../AppSync'
+import { LineChart, Grid } from 'react-native-svg-charts'
+import * as shape from 'd3-shape'
 
 // TESTING USING THE AMPLIFY STUFF
 import Amplify from 'aws-amplify';
 import API, { graphqlOperation } from "@aws-amplify/api";
-
-//import aws_exports from './aws-exports';
-
-//Amplify.configure(aws_exports);
 
 Amplify.configure(awsConfig);
 
@@ -37,15 +35,16 @@ class HomeScreen extends React.Component {
     dataPromise.then(function (data) {
     	console.log(data);
     });
-    let mood = 'Above Average'
-    let riskFactor = 21
-    let dailyChange = 5
-    let weeklyChange = 24
-    let conditionColor = ''
+    const data = [50, 10, 40, 95, -4, -24, 85, 91, 35, 53, -53, 24, 50, -20, -80 ];
+    let mood = 'Above Average';
+    let riskFactor = 21;
+    let dailyChange = 5;
+    let weeklyChange = 24;
+    let conditionColor = '';
     return (
       <View>
         <Header />
-	  <View style={styles.dashConditionWrapper}>
+	    <View style={styles.dashConditionWrapper}>
             <View style={styles.dashFaceContainer}>
               <Image
 	       source={require('../../assets/images/Face_03.png')}
@@ -60,9 +59,15 @@ class HomeScreen extends React.Component {
 	    </View>
          </View>
          <View style={styles.dataField}>
-	   <Text style={styles.dataText}>
-	    Insert some activity data here. I am supposed to be a heart beat, so I take up some amount of room. I am not just a boring static app. I actually do things, I swear. See my heart beat here. Yes, that is my heart beating. 
-	   </Text>
+	    <LineChart
+                style={styles.graphStyles}
+                data={ data }
+                svg={{ stroke: 'tomato', strokeWidth: 3}}
+                contentInset={{ top: 5, bottom: 5 }}
+	    	showGrid={ false }
+            >
+                <Grid svg={{ stroke: '#EEEEEE', strokeWidth: 0.5}} />
+            </LineChart>
 	 </View>
          <View style={styles.dataField}>
             <View style={styles.activityCharts}>
