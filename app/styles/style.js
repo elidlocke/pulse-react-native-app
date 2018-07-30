@@ -154,5 +154,8 @@ export default StyleSheet.create({
   deltaChange: {
     flexDirection: 'row',
     paddingBottom: 20,
-  }
+  },
+  graphStyles: {
+    height: 100,
+  },
 });
