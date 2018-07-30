@@ -6,6 +6,9 @@ import styles from '../styles/style'
 import awsConfig from '../../AppSync'
 import { LineChart, Grid } from 'react-native-svg-charts'
 import * as shape from 'd3-shape'
+import TimerMixin from 'react-timer-mixin';
+import { SharedElement } from 'react-native-motion';
+
 
 // TESTING USING THE AMPLIFY STUFF
 import Amplify from 'aws-amplify';
@@ -26,20 +29,61 @@ async function fetchData() {
 	return (allHeartRates);
 }
 
+class HeartChart extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = { seconds: 0, data: null };
+    }
+    updateData() {
+        this.setState(prevState => ({
+            seconds: prevState.seconds + 1,
+            data: prevState.seconds + 1
+        }));
+    }
+    componentDidMount() {
+        console.log('COMPONENTDIDMOUNT')
+        this.interval = setInterval(() => this.updateData(), 1000);
+	var timer = setInterval(() => {
+	  //console.log('I do not leak!');
+        }, 1000);
+    }
+    componentWillUnmount() {
+        clearInterval(this.interval);
+    }
+    render() {
+        let dataPromise = fetchData();
+        dataPromise.then(function (data) {
+    	    //console.log(data);
+        });
+	const data = Array.from({length: 40}, () => Math.floor(Math.random() * 40));
+        return (
+	   <View>
+		//<Text>{this.state.seconds}</Text>
+	   <LineChart
+                style={styles.graphStyles}
+                data={ data }
+                svg={{ stroke: 'tomato', strokeWidth: 3}}
+                contentInset={{ top: 5, bottom: 5 }}
+	    	showGrid={ false }
+	    	animate={ false }
+	    	animationDuration={ 300 }
+            >
+                <Grid svg={{ stroke: '#EEEEEE', strokeWidth: 0.5}} />
+            </LineChart>
+	    </View>
+        )
+    }
+}
+
 class HomeScreen extends React.Component {
   static navigationOptions = {
     title: 'Pulse',
   };
   render() {
-    let dataPromise = fetchData();
-    dataPromise.then(function (data) {
-    	console.log(data);
-    });
-    const data = [50, 10, 40, 95, -4, -24, 85, 91, 35, 53, -53, 24, 50, -20, -80 ];
     let mood = 'Above Average';
-    let riskFactor = 21;
-    let dailyChange = 5;
-    let weeklyChange = 24;
+    let riskFactor = 11;
+    let dailyChange = 4;
+    let weeklyChange = 2;
     let conditionColor = '';
     return (
       <View>
@@ -59,15 +103,7 @@ class HomeScreen extends React.Component {
 	    </View>
          </View>
          <View style={styles.dataField}>
-	    <LineChart
-                style={styles.graphStyles}
-                data={ data }
-                svg={{ stroke: 'tomato', strokeWidth: 3}}
-                contentInset={{ top: 5, bottom: 5 }}
-	    	showGrid={ false }
-            >
-                <Grid svg={{ stroke: '#EEEEEE', strokeWidth: 0.5}} />
-            </LineChart>
+	    <HeartChart />
 	 </View>
          <View style={styles.dataField}>
             <View style={styles.activityCharts}>
@@ -79,7 +115,7 @@ class HomeScreen extends React.Component {
 	       />;
 	      </View>
 	      <View>
-	        <Text style={styles.dataText}>Regularity</Text>
+	        <Text style={styles.dataText}>Heart Health</Text>
 	        <Image
 	         source={require('../../assets/images/Fill_01.png')}
 	         style={styles.fillChart}
@@ -106,7 +142,7 @@ class HomeScreen extends React.Component {
 	           <Icon name='arrow-up' type='font-awesome' size={30} color='#C8C7C7'/>;
 	  	  </View>
 	         <Text style={styles.dataTitle}>	  
-		  { dailyChange }% improvement in overall health since last week
+		  { dailyChange }% improvement in overall health since yesterday
 	         </Text>
 	      </View>
 	       <View style={styles.deltaChange}>
