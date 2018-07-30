@@ -3,12 +3,37 @@ import { View, Text, Image } from 'react-native';
 import { Icon } from 'react-native-elements';
 import Header from '../components/Header'
 import styles from '../styles/style'
+import awsConfig from '../../AppSync'
+
+// TESTING USING THE AMPLIFY STUFF
+import Amplify from 'aws-amplify';
+import API, { graphqlOperation } from "@aws-amplify/api";
+
+//import aws_exports from './aws-exports';
+
+//Amplify.configure(aws_exports);
+
+Amplify.configure(awsConfig);
+
+async function fetchData() {
+	const ListHeartRate = `query listHeartRate {
+	  listHeartRates(limit:5) {
+	    items {
+		  bpm
+	    }
+	  }
+	}`;
+
+	const allHeartRates = await API.graphql(graphqlOperation(ListHeartRate));
+    console.log(allHeartRates);
+}
 
 class HomeScreen extends React.Component {
   static navigationOptions = {
     title: 'Pulse',
   };
   render() {
+    fetchData();
     let mood = 'Above Average'
     let riskFactor = 21
     let dailyChange = 5
