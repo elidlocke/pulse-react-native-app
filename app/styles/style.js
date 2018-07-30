@@ -73,7 +73,6 @@ export default StyleSheet.create({
     height:180
   },
   calendarWrapper: {
-    paddingTop: 20,
     alignItems: 'center',
   },
   buttonStyle: {
@@ -81,15 +80,15 @@ export default StyleSheet.create({
     backgroundColor: 'tomato',
   },
   buttonContainer: {
-    paddingTop: 100,
+    paddingTop: 40,
   },
   inputsWrapper: {
     paddingLeft: 20,
     paddingRight: 20,
   },
   feelingFace: {
-    width: 150,
-    height: 130,
+    width: 120,
+    height: 104,
   },
   dashConditionWrapper: {
     flexDirection: 'row',
@@ -98,7 +97,7 @@ export default StyleSheet.create({
     padding: 20,
   },
   dashTitle: {
-    paddingTop: 70,
+    paddingTop: 50,
     fontFamily: 'Helvetica-Light',
     textAlign: 'left',
     fontSize: 18,
@@ -117,8 +116,8 @@ export default StyleSheet.create({
   dataField: {
     marginLeft: 20,
     marginRight: 20,
-    paddingTop: 20,
-    paddingBottom: 20,
+    paddingTop: 10,
+    paddingBottom: 5,
     borderTopWidth: 1,
     borderColor: '#D7D7D7',
   },
@@ -156,6 +155,7 @@ export default StyleSheet.create({
     paddingBottom: 20,
   },
   graphStyles: {
-    height: 100,
+    height: 80,
+    paddingBottom: 5,
   },
 });

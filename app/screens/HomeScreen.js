@@ -49,10 +49,10 @@ class HeartChart extends React.Component {
         clearInterval(this.interval);
     }
     render() {
-	let data = Array.from({length: 10}, () => Math.floor(Math.random() * 10));
+	let data = Array.from({length: 40}, () => Math.floor(Math.random() * 40));
         let dataPromise = fetchData();
         dataPromise.then(function (data) {
-    	    console.log(data);
+    	    //console.log(data);
 	}, function (error){
 	    console.error('oops');
         });
@@ -64,10 +64,7 @@ class HeartChart extends React.Component {
                 style={styles.graphStyles}
                 data={ data }
                 svg={{ stroke: 'tomato', strokeWidth: 3}}
-                contentInset={{ top: 5, bottom: 5 }}
 	    	showGrid={ false }
-	    	animate={ false }
-	    	animationDuration={ 300 }
             >
                 <Grid svg={{ stroke: '#EEEEEE', strokeWidth: 0.5}} />
             </LineChart>
