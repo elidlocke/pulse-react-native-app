@@ -9,55 +9,64 @@ const activityFeed = [ {type:"Fatigue",
 			details:"Dad had an event where something happened",
 			id:"001",
 			iconName: "newspaper-o",
-			iconType: "font-awesome"},
+			iconType: "font-awesome",
+			color: "gray"},
 			{type:"Sleep",
 			date:"June 28 1990",
 			details:"Dad had another event where something happened",
 			id:"002",
 			iconName: "bathtub",
-			iconType: "font-awesome"},
+			iconType: "font-awesome",
+			color: "gray"},
 			{type:"Fatigue",
 			date:"June 29 1990",
 			details:"Dad had another event where something happened and this text is very long. Blah blah this is some real long text.",
 			id:"003",
 			iconName: "moon-o",
-			iconType: "font-awesome"},
+			iconType: "font-awesome",
+			color: "gray"},
 			{type:"Health",
 			date:"June 50 1990",
 			details:"Ok now we are doing great. Dad had another event where something happened and this text is very long. Blah blah this is some real long text.",
 			id:"004",
 			iconName: "moon-o",
-			iconType: "font-awesome"},
+			iconType: "font-awesome",
+			color: "gray"},
 			{type:"Health",
 			date:"June 50 1990",
 			details:"Ok now we are doing great. Dad had another event where something happened and this text is very long. Blah blah this is some real long text.",
 			id:"005",
 			iconName: "moon-o",
-			iconType: "font-awesome"},
+			iconType: "font-awesome",
+			color: "gray"},
 			{type:"Health",
 			date:"June 50 1990",
 			details:"Ok now we are doing great. Dad had another event where something happened and this text is very long. Blah blah this is some real long text.",
 			id:"006",
 			iconName: "moon-o",
-			iconType: "font-awesome"},
+			iconType: "font-awesome",
+			color: "gray"},
 			{type:"Health",
 			date:"June 50 1990",
 			details:"Ok now we are doing great. Dad had another event where something happened and this text is very long. Blah blah this is some real long text.",
 			id:"007",
 			iconName: "moon-o",
-			iconType: "font-awesome"},
+			iconType: "font-awesome",
+			color: "gray"},
 			{type:"Health",
 			date:"June 50 1990",
 			details:"Ok now we are doing great. Dad had another event where something happened and this text is very long. Blah blah this is some real long text.",
 			id:"008",
 			iconName: "newspaper-o",
-			iconType: "font-awesome"},
+			iconType: "font-awesome",
+			color: "gray"},
 			{type:"Health",
 			date:"June 50 1990",
 			details:"Ok now we are doing great. Dad had another event where something happened and this text is very long. Blah blah this is some real long text.",
 			id:"009",
 			iconName: "moon-o",
-			iconType: "font-awesome"},
+			iconType: "font-awesome",
+			color: "gray"},
 		     ];
 
 activityItem = {type:"Health",
@@ -65,18 +74,23 @@ activityItem = {type:"Health",
                         details:"YO I AM AN ITEM. I AM THE NEWS NEWS IN THE HOUSE, HOLLA!!",
                         id:"010",
 			iconName: "moon-o",
-			iconType: "font-awesome"};
+			iconType: "font-awesome",
+			color: "tomato"};
 
 
 addActivity = function (activity) {
     return (
       <View style={styles.activityWrapper} key={activity.id}>
             <View style={styles.activityIconContainer}>
-                <Icon name={activity.iconName} type={activity.iconType} size={25} color='gray'/>;
+                <Icon name={activity.iconName} type={activity.iconType} size={25} color={activity.color}/>;
             </View>
             <View style = {styles.activityContainer}>
-                <Text style={styles.newsDate}>{activity.date}</Text>
-                <Text style={styles.newsContent}>{activity.details}</Text>
+                <Text style={[activity.color == "tomato" ? styles.newsDateNew : styles.newsDate]}>{activity.date}</Text>
+            	<Text style={styles.newNotice}>
+            	    {activity.color == 'tomato'? <Text>NEW</Text>: null }
+        	</Text>   
+
+	    	<Text style={styles.newsContent}>{activity.details}</Text>
             </View>
   </View>	
     )
@@ -91,16 +105,16 @@ class NewsFeed extends React.Component {
 	
 	if (this.state.firstLoad == true)
 	{
+	    let activity = addActivity(activityItem);
 	    this.setState(prevState => ({
+		newsfeed: [ addActivity(activityItem), ...activityFeed.map(addActivity)],
 		firstLoad: false,
-		newsfeed: [addActivity(activityItem), ...prevState.newsfeed],
             }));
 	}
-	//console.log(this.state.newsfeed);
     }
     componentDidMount() {
 	this.state.newsfeed = 
-        this.interval = setInterval(() => this.addArticle(), 2000);
+        this.interval = setInterval(() => this.addArticle(), 1500);
     }
     componentWillUnmount() {
         clearInterval(this.interval);

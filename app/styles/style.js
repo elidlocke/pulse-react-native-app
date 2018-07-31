@@ -36,15 +36,22 @@ export default StyleSheet.create({
   },
   activityIconContainer: {
     width: 20,
+    marginRight: 10,
   },
   activityContainer: {
-    maxWidth: 340,
+    maxWidth: 330,
   },
   newsDate: {
     fontFamily: 'Helvetica-Light',
     fontStyle: 'italic',
     fontSize: 10,
     color: 'gray',
+  },
+  newsDateNew: {
+    fontFamily: 'Helvetica-Light',
+    fontStyle: 'italic',
+    fontSize: 10,
+    color: 'tomato',
   },
   newsContent: {
     fontFamily: 'Helvetica-Light',
@@ -158,4 +165,8 @@ export default StyleSheet.create({
     height: 80,
     paddingBottom: 5,
   },
+  newNotice: {
+    color: 'tomato',
+    fontWeight: 'bold',
+  }
 });
