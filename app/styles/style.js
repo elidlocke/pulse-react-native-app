@@ -35,7 +35,7 @@ export default StyleSheet.create({
     padding: 5,
   },
   activityIconContainer: {
-    width: 20,
+    width: 25,
     marginRight: 10,
   },
   activityContainer: {
