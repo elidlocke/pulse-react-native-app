@@ -3,6 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb": "^17.0.0",
+    "eslint-plugin-import": "^2.13.0",
+    "eslint-plugin-jsx-a11y": "^6.1.1",
+    "eslint-plugin-react": "^7.10.0",
     "jest-expo": "~27.0.0",
     "react-native-scripts": "1.14.0",
     "react-test-renderer": "16.3.1"
@@ -28,6 +33,8 @@
     "react-native-elements": "^0.19.1",
     "react-native-fontawesome": "^5.7.0",
     "react-native-material-dropdown": "^0.11.1",
+    "react-native-svg": "^6.5.0",
+    "react-native-svg-charts": "^5.2.0",
     "react-native-vector-icons": "^4.6.0",
     "react-navigation": "^2.9.1",
     "react-redux": "^5.0.7",

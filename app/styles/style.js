@@ -14,7 +14,7 @@ export default StyleSheet.create({
  },
   headerTitle: {
     fontWeight: 'bold',
-    fontFamily: 'TrebuchetMS',
+    fontFamily: 'monospace',
     fontSize: 25,
     paddingTop: 25,
     color: 'tomato'
@@ -41,13 +41,13 @@ export default StyleSheet.create({
     maxWidth: 340,
   },
   newsDate: {
-    fontFamily: 'Helvetica-Light',
+    fontFamily: 'monospace',
     fontStyle: 'italic',
     fontSize: 10,
     color: 'gray',
   },
   newsContent: {
-    fontFamily: 'Helvetica-Light',
+    fontFamily: 'monospace',
     fontSize: 16,
     color: 'gray',
   },
@@ -55,7 +55,7 @@ export default StyleSheet.create({
     padding: 50,
   },
   titleText: {
-    fontFamily: 'TrebuchetMS',
+    fontFamily: 'monospace',
     fontWeight: 'bold',
     textAlign: 'center',
     fontSize: 28,
@@ -63,7 +63,7 @@ export default StyleSheet.create({
   },
   infoText: {
     paddingTop: 10,
-    fontFamily: 'Helvetica-Light',
+    fontFamily: 'monospace',
     textAlign: 'center',
     fontSize: 16,
     color: 'gray',
@@ -99,7 +99,7 @@ export default StyleSheet.create({
   },
   dashTitle: {
     paddingTop: 70,
-    fontFamily: 'Helvetica-Light',
+    fontFamily: 'monospace',
     textAlign: 'left',
     fontSize: 18,
     color: 'gray',
@@ -131,12 +131,12 @@ export default StyleSheet.create({
     height: 100,
   },
   dataText: {
-    fontFamily: 'Helvetica-Light',
+    fontFamily: 'monospace',
     textAlign: 'center',
     color: 'gray',
   },
   dataTitle: {
-    fontFamily: 'Helvetica-Light',
+    fontFamily: 'monospace',
     color: 'gray',
   },
   dashRiskWrapper: {
