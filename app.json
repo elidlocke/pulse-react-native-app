@@ -3,7 +3,7 @@
     "name": "Pulse",
     "version": "0.0.1",
     "sdkVersion": "27.0.0",
-    "icon": "./assets/images/HeartBeat.png",
+    "icon": "./assets/images/icon.png",
     "slug": "pulse",
     "android": {
 	    "package": "com.disrupt.pulse"

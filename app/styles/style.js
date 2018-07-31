@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import { Platform, StyleSheet } from "react-native";
 
 export default StyleSheet.create({
   appWrapper: {
@@ -14,7 +14,7 @@ export default StyleSheet.create({
   },
   headerTitle: {
     fontWeight: "bold",
-    fontFamily: "monospace",
+    fontFamily: Platform.OS === 'ios' ? "TrebuchetMS" : "monospace",
     fontSize: 25,
     paddingTop: 25,
     color: "tomato"
@@ -35,26 +35,26 @@ export default StyleSheet.create({
     padding: 5
   },
   activityIconContainer: {
-    width: 20,
-    marginRight: 10
+    width: 30,
+    marginRight: 15
   },
   activityContainer: {
     maxWidth: 330
   },
   newsDate: {
-    fontFamily: "monospace",
+    fontFamily: Platform.OS === 'ios' ? "Helvetica-Light" : "monospace",
     fontStyle: "italic",
     fontSize: 10,
     color: "gray"
   },
   newsDateNew: {
-    fontFamily: "Helvetica-Light",
+    fontFamily: Platform.OS === 'ios' ? "Helvetica-Light" : "monospace",
     fontStyle: "italic",
     fontSize: 10,
     color: "tomato"
   },
   newsContent: {
-    fontFamily: "monospace",
+    fontFamily: Platform.OS === 'ios' ? "Helvetica-Light" : "monospace",
     fontSize: 16,
     color: "gray"
   },
@@ -62,7 +62,7 @@ export default StyleSheet.create({
     padding: 50
   },
   titleText: {
-    fontFamily: "monospace",
+    fontFamily: Platform.OS === 'ios' ? "TrebuchetMS" : "monospace",
     fontWeight: "bold",
     textAlign: "center",
     fontSize: 28,
@@ -70,7 +70,7 @@ export default StyleSheet.create({
   },
   infoText: {
     paddingTop: 10,
-    fontFamily: "monospace",
+    fontFamily: Platform.OS === 'ios' ? "Helvetica-Light" : "monospace",
     textAlign: "center",
     fontSize: 16,
     color: "gray"
@@ -105,7 +105,7 @@ export default StyleSheet.create({
   },
   dashTitle: {
     paddingTop: 50,
-    fontFamily: "monospace",
+    fontFamily: Platform.OS === 'ios' ? "Helvetica-Light" : "monospace",
     textAlign: "left",
     fontSize: 18,
     color: "gray"
@@ -137,12 +137,12 @@ export default StyleSheet.create({
     height: 100
   },
   dataText: {
-    fontFamily: "monospace",
+    fontFamily: Platform.OS === 'ios' ? "Helvetica-Light" : "monospace",
     textAlign: "center",
     color: "gray"
   },
   dataTitle: {
-    fontFamily: "monospace",
+    fontFamily: Platform.OS === 'ios' ? "Helvetica-Light" : "monospace",
     color: "gray"
   },
   dashRiskWrapper: {

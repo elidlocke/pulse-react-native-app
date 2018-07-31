@@ -1,3 +1,5 @@
+import { Platform } from 'react-native';
+
 const activityFeed = [
   {
     type: 'Fatigue',
@@ -34,7 +36,7 @@ const activityFeed = [
   {
     type: 'Health',
     date: 'July 12 2018',
-    details: 'Dad reduced his overall risk factor by 3% from yesturday!',
+    details: 'Dad reduced his overall risk factor by 3% from yesterday!',
     id: '005',
     iconName: 'trending-down',
     iconType: 'feather',
@@ -44,14 +46,14 @@ const activityFeed = [
     date: 'July 13 2018',
     details: 'Day went for a 23 minute walk today. Remind him to keep it up!',
     id: '006',
-    iconName: 'directions-walk',
-    iconType: 'material-icons',
+    iconName: Platform.OS === 'ios' ? 'ios-walk' : 'directions-walk',
+    iconType: Platform.OS === 'ios' ? 'ionicon' : 'material-icons',
   },
   {
     type: 'Health',
     date: 'July 16 2018',
     details:
-      'Dad increased his overall risk factor by 2% from yesturday. Give him a call and see how he\'s feeling.',
+      'Dad increased his overall risk factor by 2% from yesterday. Give him a call and see how he\'s feeling.',
     id: '007',
     iconName: 'trending-down',
     iconType: 'feather',
@@ -71,8 +73,8 @@ const activityItem = {
   date: 'June 50 1990',
   details: 'Dad didn\'t meet his daily step goal today.',
   id: '010',
-  iconName: 'directions-walk',
-  iconType: 'material-icons',
+  iconName: Platform.OS === 'ios' ? 'ios-walk' : 'directions-walk',
+  iconType: Platform.OS === 'ios' ? 'ionicon' : 'material-icons',
 };
 
 export { activityFeed, activityItem };
