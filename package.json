@@ -26,18 +26,22 @@
   "dependencies": {
     "aws-amplify": "^1.0.4",
     "aws-amplify-react-native": "^1.0.4",
+    "d3-shape": "^1.2.0",
     "expo": "^27.0.1",
+    "prop-types": "^15.6.2",
     "react": "16.3.1",
     "react-apollo": "^2.1.9",
     "react-native": "~0.55.2",
     "react-native-elements": "^0.19.1",
     "react-native-fontawesome": "^5.7.0",
     "react-native-material-dropdown": "^0.11.1",
+    "react-native-motion": "^0.2.0",
     "react-native-svg": "^6.5.0",
     "react-native-svg-charts": "^5.2.0",
     "react-native-vector-icons": "^4.6.0",
     "react-navigation": "^2.9.1",
     "react-redux": "^5.0.7",
+    "react-timer-mixin": "^0.13.4",
     "redux": "^4.0.0",
     "redux-logger": "^3.0.6"
   }

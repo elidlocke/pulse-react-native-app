@@ -6,6 +6,8 @@ import styles from "../styles/style";
 import awsConfig from "../../AppSync";
 import { LineChart, Grid } from "react-native-svg-charts";
 import * as shape from "d3-shape";
+import TimerMixin from "react-timer-mixin";
+import { SharedElement } from "react-native-motion";
 
 // TESTING USING THE AMPLIFY STUFF
 import Amplify from "aws-amplify";
@@ -28,34 +30,65 @@ async function fetchData() {
   return allHeartRates;
 }
 
+class HeartChart extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { seconds: 0 };
+  }
+
+  update() {
+    this.setState(prevState => ({
+      seconds: prevState.seconds + 1
+    }));
+  }
+
+  componentDidMount() {
+    console.log("COMPONENTDIDMOUNT");
+    this.interval = setInterval(() => this.update(), 1000);
+    const timer = setInterval(() => {}, 1000);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.interval);
+  }
+
+  render() {
+    const data = Array.from({ length: 40 }, () =>
+      Math.floor(Math.random() * 40)
+    );
+    const dataPromise = fetchData();
+    dataPromise.then(
+      function(data) {
+        //console.log(data);
+      },
+      function(error) {
+        console.error("oops");
+      }
+    );
+
+    return (
+      <View>
+        <Text>{this.state.data}</Text>
+        <LineChart
+          style={styles.graphStyles}
+          data={data}
+          svg={{ stroke: "tomato", strokeWidth: 3 }}
+          showGrid={false}
+        >
+          <Grid svg={{ stroke: "#EEEEEE", strokeWidth: 0.5 }} />
+        </LineChart>
+      </View>
+    );
+  }
+}
+
 class HomeScreen extends React.Component {
   render() {
-    const dataPromise = fetchData();
-    dataPromise.then(function(data) {
-      console.log(data);
-    });
-    const data = [
-      50,
-      10,
-      40,
-      95,
-      -4,
-      -24,
-      85,
-      91,
-      35,
-      53,
-      -53,
-      24,
-      50,
-      -20,
-      -80
-    ];
-    let mood = "Above Average";
-    let riskFactor = 21;
-    let dailyChange = 5;
-    let weeklyChange = 24;
-    let conditionColor = "";
+    const mood = "Above Average";
+    const riskFactor = 11;
+    const dailyChange = 4;
+    const weeklyChange = 2;
+    const conditionColor = "";
     return (
       <View>
         <Header />
@@ -74,15 +107,7 @@ class HomeScreen extends React.Component {
           </View>
         </View>
         <View style={styles.dataField}>
-          <LineChart
-            style={styles.graphStyles}
-            data={data}
-            svg={{ stroke: "tomato", strokeWidth: 3 }}
-            contentInset={{ top: 5, bottom: 5 }}
-            showGrid={false}
-          >
-            <Grid svg={{ stroke: "#EEEEEE", strokeWidth: 0.5 }} />
-          </LineChart>
+          <HeartChart />
         </View>
         <View style={styles.dataField}>
           <View style={styles.activityCharts}>
@@ -94,7 +119,7 @@ class HomeScreen extends React.Component {
               />
             </View>
             <View>
-              <Text style={styles.dataText}>Regularity</Text>
+              <Text style={styles.dataText}>Heart Health</Text>
               <Image
                 source={require("../../assets/images/Fill_01.png")}
                 style={styles.fillChart}
@@ -126,7 +151,7 @@ class HomeScreen extends React.Component {
                   />
                 </View>
                 <Text style={styles.dataTitle}>
-                  {dailyChange}% improvement in overall health since last week
+                  {dailyChange}% improvement in overall health since yesterday
                 </Text>
               </View>
               <View style={styles.deltaChange}>
