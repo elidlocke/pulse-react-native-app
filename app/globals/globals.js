@@ -4,7 +4,7 @@ const activityFeed = [
   {
     type: "Fatigue",
     date: "Fri Jul 06 2018",
-    details: "Dad's heartbeat was abnormally high for 2 minutes",
+    details: "Dad's heartbeat was abnormally high for 2 minutes at 12:51 pm",
     id: "001",
     iconName: "heartbeat",
     iconType: "font-awesome",
@@ -15,7 +15,7 @@ const activityFeed = [
     date: "Sat Jul 07 2018",
     details: "Dad got less than 5 hours of sleep tonight",
     id: "002",
-    iconName: "bathtub",
+    iconName: "moon-o",
     iconType: "font-awesome",
     color: "gray"
   },
@@ -24,16 +24,7 @@ const activityFeed = [
     date: "Tue Jul 10 2018",
     details: "Dad met his sleep goal last night!",
     id: "003",
-    iconName: "moon-o",
-    iconType: "font-awesome",
-    color: "gray"
-  },
-  {
-    type: "Health",
-    date: "Wed Jul 11 2018",
-    details: "Dad had experienced some abnormal heart beats at 8:52 am.",
-    id: "004",
-    iconName: "heartbeat",
+    iconName: "bed",
     iconType: "font-awesome",
     color: "gray"
   },
@@ -49,7 +40,7 @@ const activityFeed = [
   {
     type: "Health",
     date: "Fri Jul 13 2018",
-    details: "Day went for a 23 minute walk today. Remind him to keep it up!",
+    details: "Dad went for a 23 minute walk today. Remind him to keep it up!",
     id: "006",
     iconName: Platform.OS === "ios" ? "ios-walk" : "directions-walk",
     iconType: Platform.OS === "ios" ? "ionicon" : "material-icons",
@@ -79,7 +70,7 @@ const activityFeed = [
 const activityItem = {
   type: "Health",
   date: new Date().toDateString(),
-  details: "Dad didn't meet his daily step goal today.",
+  details: "Dad didn't meet his step goal yesterday.",
   id: "010",
   iconName: Platform.OS === "ios" ? "ios-walk" : "directions-walk",
   iconType: Platform.OS === "ios" ? "ionicon" : "material-icons",
