@@ -13,38 +13,40 @@ import ScheduleScreen from './app/screens/ScheduleScreen'
 import TeamScreen from './app/screens/TeamScreen'
 
 const RootStack =createBottomTabNavigator(
-  {
-  News: NewsScreen,
-  Home: HomeScreen,
-  Schedule: ScheduleScreen,
-  Team: TeamScreen
+{
+    News: NewsScreen,
+    Home: HomeScreen,
+    Schedule: ScheduleScreen,
+    Team: TeamScreen
   },
   {
     navigationOptions: ({ navigation }) => ({
-      tabBarIcon: ({ focused, tintColor }) => {
+      tabBarIcon: ({focused, tintColor}) => {
         const { routeName } = navigation.state;
         let iconName;
-  let iconType;
+        let iconType;
         if (routeName === 'News') {
           iconName = 'newspaper-o';
-    iconType = 'font-awesome';
+          iconType = 'font-awesome';
         } else if (routeName === 'Home') {
           iconName = 'heartbeat';
-    iconType = 'font-awesome';
+          iconType = 'font-awesome';
         } else if (routeName === 'Schedule') {
           iconName = 'calendar-o';
-    iconType = 'font-awesome';
+          iconType = 'font-awesome';
         } else if (routeName === 'Team') {
           iconName = 'group';
-    iconType = 'font-awesome';
+          iconType = 'font-awesome';
         }
-        return <Icon name={iconName} type={iconType} size={25} color={tintColor} />;
-      },
+        return (
+          <Icon name={iconName} type={iconType} size={25} color={tintColor} />
+        );
+      }
     }),
     initialRouteName: 'Home',
     tabBarOptions: {
       activeTintColor: 'tomato',
-      inactiveTintColor: 'gray',
+      inactiveTintColor: 'gray'
     },
   }
 );
