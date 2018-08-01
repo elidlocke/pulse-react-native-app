@@ -1,31 +1,31 @@
-import { StyleSheet } from 'react-native';
+import { Platform, StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
   appWrapper: {
-    flex: 1
+    flex: 1,
   },
- headerStyle: {
-  alignItems: 'center',
-  justifyContent: 'center',
-  height: 100,
-  backgroundColor: '#F7F7F7',
-  borderBottomWidth: 0.5,
-  borderColor: '#d6d7da',
- },
+  headerStyle: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: 100,
+    backgroundColor: '#F7F7F7',
+    borderBottomWidth: 0.5,
+    borderColor: '#d6d7da',
+  },
   headerTitle: {
     fontWeight: 'bold',
-    //fontFamily: 'TrebuchetMS',
+    fontFamily: Platform.OS === 'ios' ? 'TrebuchetMS' : 'monospace',
     fontSize: 25,
     paddingTop: 25,
-    color: 'tomato'
+    color: 'tomato',
   },
   mainView: {
     alignItems: 'center',
     justifyContent: 'center',
   },
   onboardLogo: {
-    width:100,
-    height:100
+    width: 100,
+    height: 100,
   },
   activityWrapper: {
     borderTopWidth: 1,
@@ -35,34 +35,37 @@ export default StyleSheet.create({
     padding: 5,
   },
   activityIconContainer: {
-    width: 25,
-    marginRight: 10,
+    width: 30,
+    marginRight: 15,
   },
   activityContainer: {
     maxWidth: 330,
   },
   newsDate: {
-    fontFamily: 'Helvetica-Light',
+    fontFamily: Platform.OS === 'ios' ? 'Helvetica-Light' : 'monospace',
     fontStyle: 'italic',
     fontSize: 10,
     color: 'gray',
   },
   newsDateNew: {
-    fontFamily: 'Helvetica-Light',
+    fontFamily: Platform.OS === 'ios' ? 'Helvetica-Light' : 'monospace',
     fontStyle: 'italic',
     fontSize: 10,
     color: 'tomato',
   },
   newsContent: {
-    fontFamily: 'Helvetica-Light',
+    fontFamily: Platform.OS === 'ios' ? 'Helvetica-Light' : 'monospace',
     fontSize: 16,
     color: 'gray',
+  },
+  newsContainer: {
+    marginBottom: 100,
   },
   screenTitle: {
     padding: 50,
   },
   titleText: {
-    fontFamily: 'TrebuchetMS',
+    fontFamily: Platform.OS === 'ios' ? 'TrebuchetMS' : 'monospace',
     fontWeight: 'bold',
     textAlign: 'center',
     fontSize: 28,
@@ -70,14 +73,14 @@ export default StyleSheet.create({
   },
   infoText: {
     paddingTop: 10,
-    fontFamily: 'Helvetica-Light',
+    fontFamily: Platform.OS === 'ios' ? 'Helvetica-Light' : 'monospace',
     textAlign: 'center',
     fontSize: 16,
     color: 'gray',
   },
   calendarImg: {
     width: 300,
-    height:180
+    height: 180,
   },
   calendarWrapper: {
     alignItems: 'center',
@@ -105,7 +108,7 @@ export default StyleSheet.create({
   },
   dashTitle: {
     paddingTop: 50,
-    fontFamily: 'Helvetica-Light',
+    fontFamily: Platform.OS === 'ios' ? 'Helvetica-Light' : 'monospace',
     textAlign: 'left',
     fontSize: 18,
     color: 'gray',
@@ -137,12 +140,12 @@ export default StyleSheet.create({
     height: 100,
   },
   dataText: {
-    fontFamily: 'Helvetica-Light',
+    fontFamily: Platform.OS === 'ios' ? 'Helvetica-Light' : 'monospace',
     textAlign: 'center',
     color: 'gray',
   },
   dataTitle: {
-    fontFamily: 'Helvetica-Light',
+    fontFamily: Platform.OS === 'ios' ? 'Helvetica-Light' : 'monospace',
     color: 'gray',
   },
   dashRiskWrapper: {
