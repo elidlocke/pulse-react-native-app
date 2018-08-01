@@ -1,44 +1,45 @@
-import React from "react";
-import { Alert, View, Text, Image } from "react-native";
-import {
-  Icon,
-  Button,
-  FormLabel,
-  FormInput,
-  FormValidationMessage
-} from "react-native-elements";
-import { Dropdown } from "react-native-material-dropdown";
-import { TextField } from "react-native-material-textfield";
+import React from 'react';
+import { Alert, View, Text } from 'react-native';
+import { Icon, Button } from 'react-native-elements';
+import { Dropdown } from 'react-native-material-dropdown';
+import { TextField } from 'react-native-material-textfield';
 
-import Header from "../components/Header";
-import styles from "../styles/style";
+import Header from '../components/Header';
+import styles from '../styles/style';
 
 class TeamScreen extends React.Component {
-  state = {
-    phone: ""
-  };
+  constructor(props) {
+    super(props);
+    this.state = { phone: '' };
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(value) {
+    this.setState({ phone: value });
+  }
+
   render() {
-    let data = [
+    const data = [
       {
-        value: "Family"
+        value: 'Family'
       },
       {
-        value: "Friend"
+        value: 'Friend'
       },
       {
-        value: "Neighbor"
+        value: 'Neighbor'
       }
     ];
-    let { phone } = this.state;
 
+    const { phone } = this.state;
     return (
       <View>
         <Header />
         <View style={styles.screenTitle}>
           <Icon name="user-plus" type="font-awesome" size={25} color="tomato" />
-	  <Text style={styles.titleText}>Assemble a Team</Text>
+          <Text style={styles.titleText}>Assemble a Team</Text>
           <Text style={styles.infoText}>
-            Add the people who care about George to recieve alerts.{" "}
+            Add the people who care about George to recieve alerts.{' '}
           </Text>
         </View>
         <View style={styles.inputsWrapper}>
@@ -47,7 +48,7 @@ class TeamScreen extends React.Component {
               tintColor="tomato"
               label="Phone number"
               value={phone}
-              onChangeText={phone => this.setState({ phone })}
+              onChangeText={e => this.handleChange(e)}
             />
             <Dropdown label="Relationship to George" data={data} />
           </View>
@@ -55,8 +56,8 @@ class TeamScreen extends React.Component {
         <View style={styles.buttonContainer} />
         <Button
           onPress={() => {
-            Alert.alert("Invitation Sent");
-            this.props.navigation.navigate("Home");
+            Alert.alert('Invitation Sent');
+            this.props.navigation.navigate('Home');
           }}
           title="Invite to Care Circle"
           color="white"

@@ -1,9 +1,9 @@
-import React from "react";
-import { View, Text, ScrollView } from "react-native";
-import { Icon } from "react-native-elements";
-import Header from "../components/Header";
-import styles from "../styles/style";
-import { activityFeed, activityItem } from "../globals/globals.js";
+import React from 'react';
+import { View, Text, ScrollView } from 'react-native';
+import { Icon } from 'react-native-elements';
+import Header from '../components/Header';
+import styles from '../styles/style';
+import { activityFeed, activityItem } from '../globals/globals.js';
 
 const addActivity = function(activity) {
   return (
@@ -19,13 +19,13 @@ const addActivity = function(activity) {
       <View style={styles.activityContainer}>
         <Text
           style={
-            activity.color === "tomato" ? styles.newsDateNew : styles.newsDate
+            activity.color === 'tomato' ? styles.newsDateNew : styles.newsDate
           }
         >
           {activity.date}
         </Text>
         <Text style={styles.newNotice}>
-          {activity.color === "tomato" ? <Text>NEW</Text> : null}
+          {activity.color === 'tomato' ? <Text>NEW</Text> : null}
         </Text>
         <Text style={styles.newsContent}>{activity.details}</Text>
       </View>
@@ -67,7 +67,6 @@ class NewsFeed extends React.Component {
     );
   }
 }
-
 
 class NewsScreen extends React.Component {
   render() {

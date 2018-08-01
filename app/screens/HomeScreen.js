@@ -1,17 +1,12 @@
-import React from "react";
-import { View, Text, Image } from "react-native";
-import { Icon } from "react-native-elements";
-import Header from "../components/Header";
-import styles from "../styles/style";
-import awsConfig from "../../AppSync";
-import { LineChart, Grid } from "react-native-svg-charts";
-import * as shape from "d3-shape";
-import TimerMixin from "react-timer-mixin";
-import { SharedElement } from "react-native-motion";
-
-// TESTING USING THE AMPLIFY STUFF
-import Amplify from "aws-amplify";
-import API, { graphqlOperation } from "@aws-amplify/api";
+import Amplify from 'aws-amplify';
+import API, { graphqlOperation } from '@aws-amplify/api';
+import React from 'react';
+import { View, Text, Image } from 'react-native';
+import { Icon } from 'react-native-elements';
+import { LineChart, Grid } from 'react-native-svg-charts';
+import Header from '../components/Header';
+import styles from '../styles/style';
+import awsConfig from '../../AppSync';
 
 Amplify.configure(awsConfig);
 
@@ -36,35 +31,33 @@ class HeartChart extends React.Component {
     this.state = { seconds: 0 };
   }
 
-  update() {
-    this.setState(prevState => ({
-      seconds: prevState.seconds + 1
-    }));
-  }
-
   componentDidMount() {
-    console.log("COMPONENTDIDMOUNT");
     this.interval = setInterval(() => this.update(), 1000);
-    const timer = setInterval(() => {}, 1000);
   }
 
   componentWillUnmount() {
     clearInterval(this.interval);
   }
 
+  update() {
+    this.setState(prevState => ({
+      seconds: prevState.seconds + 1
+    }));
+  }
+
   render() {
     const data = Array.from({ length: 40 }, () =>
       Math.floor(Math.random() * 40)
     );
-    const dataPromise = fetchData();
-    dataPromise.then(
-      function(data) {
-        //console.log(data);
-      },
-      function(error) {
-        console.error("oops");
-      }
-    );
+    // const dataPromise = fetchData();
+    // dataPromise.then(
+    //   function(data) {
+    //     console.log(data);
+    //   },
+    //   function(error) {
+    //     console.error("oops");
+    //   }
+    // );
 
     return (
       <View>
@@ -72,10 +65,10 @@ class HeartChart extends React.Component {
         <LineChart
           style={styles.graphStyles}
           data={data}
-          svg={{ stroke: "tomato", strokeWidth: 3 }}
+          svg={{ stroke: 'tomato', strokeWidth: 3 }}
           showGrid={false}
         >
-          <Grid svg={{ stroke: "#EEEEEE", strokeWidth: 0.5 }} />
+          <Grid svg={{ stroke: '#EEEEEE', strokeWidth: 0.5 }} />
         </LineChart>
       </View>
     );
@@ -84,18 +77,17 @@ class HeartChart extends React.Component {
 
 class HomeScreen extends React.Component {
   render() {
-    const mood = "Above Average";
+    const mood = 'Above Average';
     const riskFactor = 11;
     const dailyChange = 4;
     const weeklyChange = 2;
-    const conditionColor = "";
     return (
       <View>
         <Header />
         <View style={styles.dashConditionWrapper}>
           <View style={styles.dashFaceContainer}>
             <Image
-              source={require("../../assets/images/Face_03.png")}
+              source={require('../../assets/images/Face_03.png')}
               style={styles.feelingFace}
             />
           </View>
@@ -114,21 +106,21 @@ class HomeScreen extends React.Component {
             <View>
               <Text style={styles.dataText}>Activity</Text>
               <Image
-                source={require("../../assets/images/Fill_04.png")}
+                source={require('../../assets/images/Fill_04.png')}
                 style={styles.fillChart}
               />
             </View>
             <View>
               <Text style={styles.dataText}>Heart Health</Text>
               <Image
-                source={require("../../assets/images/Fill_01.png")}
+                source={require('../../assets/images/Fill_01.png')}
                 style={styles.fillChart}
               />
             </View>
             <View>
               <Text style={styles.dataText}>Sleep</Text>
               <Image
-                source={require("../../assets/images/Fill_02.png")}
+                source={require('../../assets/images/Fill_02.png')}
                 style={styles.fillChart}
               />
             </View>
