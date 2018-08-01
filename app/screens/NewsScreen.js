@@ -68,10 +68,11 @@ class NewsFeed extends React.Component {
   }
 }
 
+
 class NewsScreen extends React.Component {
   render() {
     return (
-      <View>
+      <View style={styles.newsContainer}>
         <Header />
         <ScrollView>
           <View style={styles.screenTitle}>

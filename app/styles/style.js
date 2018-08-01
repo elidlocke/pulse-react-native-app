@@ -1,124 +1,127 @@
-import { Platform, StyleSheet } from "react-native";
+import { Platform, StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
   appWrapper: {
-    flex: 1
+    flex: 1,
   },
   headerStyle: {
-    alignItems: "center",
-    justifyContent: "center",
+    alignItems: 'center',
+    justifyContent: 'center',
     height: 100,
-    backgroundColor: "#F7F7F7",
+    backgroundColor: '#F7F7F7',
     borderBottomWidth: 0.5,
-    borderColor: "#d6d7da"
+    borderColor: '#d6d7da',
   },
   headerTitle: {
-    fontWeight: "bold",
-    fontFamily: Platform.OS === 'ios' ? "TrebuchetMS" : "monospace",
+    fontWeight: 'bold',
+    fontFamily: Platform.OS === 'ios' ? 'TrebuchetMS' : 'monospace',
     fontSize: 25,
     paddingTop: 25,
-    color: "tomato"
+    color: 'tomato',
   },
   mainView: {
-    alignItems: "center",
-    justifyContent: "center"
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   onboardLogo: {
     width: 100,
-    height: 100
+    height: 100,
   },
   activityWrapper: {
     borderTopWidth: 1,
-    borderColor: "#D7D7D7",
-    flexDirection: "row",
+    borderColor: '#D7D7D7',
+    flexDirection: 'row',
     margin: 5,
-    padding: 5
+    padding: 5,
   },
   activityIconContainer: {
     width: 30,
-    marginRight: 15
+    marginRight: 15,
   },
   activityContainer: {
-    maxWidth: 330
+    maxWidth: 330,
   },
   newsDate: {
-    fontFamily: Platform.OS === 'ios' ? "Helvetica-Light" : "monospace",
-    fontStyle: "italic",
+    fontFamily: Platform.OS === 'ios' ? 'Helvetica-Light' : 'monospace',
+    fontStyle: 'italic',
     fontSize: 10,
-    color: "gray"
+    color: 'gray',
   },
   newsDateNew: {
-    fontFamily: Platform.OS === 'ios' ? "Helvetica-Light" : "monospace",
-    fontStyle: "italic",
+    fontFamily: Platform.OS === 'ios' ? 'Helvetica-Light' : 'monospace',
+    fontStyle: 'italic',
     fontSize: 10,
-    color: "tomato"
+    color: 'tomato',
   },
   newsContent: {
-    fontFamily: Platform.OS === 'ios' ? "Helvetica-Light" : "monospace",
+    fontFamily: Platform.OS === 'ios' ? 'Helvetica-Light' : 'monospace',
     fontSize: 16,
-    color: "gray"
+    color: 'gray',
+  },
+  newsContainer: {
+    marginBottom: 100,
   },
   screenTitle: {
-    padding: 50
+    padding: 50,
   },
   titleText: {
-    fontFamily: Platform.OS === 'ios' ? "TrebuchetMS" : "monospace",
-    fontWeight: "bold",
-    textAlign: "center",
+    fontFamily: Platform.OS === 'ios' ? 'TrebuchetMS' : 'monospace',
+    fontWeight: 'bold',
+    textAlign: 'center',
     fontSize: 28,
-    color: "gray"
+    color: 'gray',
   },
   infoText: {
     paddingTop: 10,
-    fontFamily: Platform.OS === 'ios' ? "Helvetica-Light" : "monospace",
-    textAlign: "center",
+    fontFamily: Platform.OS === 'ios' ? 'Helvetica-Light' : 'monospace',
+    textAlign: 'center',
     fontSize: 16,
-    color: "gray"
+    color: 'gray',
   },
   calendarImg: {
     width: 300,
-    height: 180
+    height: 180,
   },
   calendarWrapper: {
-    alignItems: "center"
+    alignItems: 'center',
   },
   buttonStyle: {
     borderRadius: 5,
-    backgroundColor: "tomato"
+    backgroundColor: 'tomato',
   },
   buttonContainer: {
-    paddingTop: 40
+    paddingTop: 40,
   },
   inputsWrapper: {
     paddingLeft: 20,
-    paddingRight: 20
+    paddingRight: 20,
   },
   feelingFace: {
     width: 120,
-    height: 104
+    height: 104,
   },
   dashConditionWrapper: {
-    flexDirection: "row"
+    flexDirection: 'row',
   },
   dashFaceContainer: {
-    padding: 20
+    padding: 20,
   },
   dashTitle: {
     paddingTop: 50,
-    fontFamily: Platform.OS === 'ios' ? "Helvetica-Light" : "monospace",
-    textAlign: "left",
+    fontFamily: Platform.OS === 'ios' ? 'Helvetica-Light' : 'monospace',
+    textAlign: 'left',
     fontSize: 18,
-    color: "gray"
+    color: 'gray',
   },
   dashCondition: {
-    color: "#84D12D",
-    fontSize: 20
+    color: '#84D12D',
+    fontSize: 20,
   },
   dashRisk: {
-    color: "#84D12D",
+    color: '#84D12D',
     fontSize: 50,
-    fontWeight: "bold",
-    paddingTop: 10
+    fontWeight: 'bold',
+    paddingTop: 10,
   },
   dataField: {
     marginLeft: 20,
@@ -126,47 +129,47 @@ export default StyleSheet.create({
     paddingTop: 10,
     paddingBottom: 5,
     borderTopWidth: 1,
-    borderColor: "#D7D7D7"
+    borderColor: '#D7D7D7',
   },
   activityCharts: {
-    flexDirection: "row",
-    justifyContent: "space-between"
+    flexDirection: 'row',
+    justifyContent: 'space-between',
   },
   fillChart: {
     width: 100,
-    height: 100
+    height: 100,
   },
   dataText: {
-    fontFamily: Platform.OS === 'ios' ? "Helvetica-Light" : "monospace",
-    textAlign: "center",
-    color: "gray"
+    fontFamily: Platform.OS === 'ios' ? 'Helvetica-Light' : 'monospace',
+    textAlign: 'center',
+    color: 'gray',
   },
   dataTitle: {
-    fontFamily: Platform.OS === 'ios' ? "Helvetica-Light" : "monospace",
-    color: "gray"
+    fontFamily: Platform.OS === 'ios' ? 'Helvetica-Light' : 'monospace',
+    color: 'gray',
   },
   dashRiskWrapper: {
-    flexDirection: "row"
+    flexDirection: 'row',
   },
   iconWrapper: {
-    paddingRight: 10
+    paddingRight: 10,
   },
   dashOverallRisk: {
-    width: 150
+    width: 150,
   },
   deltaChanges: {
-    width: 150
+    width: 150,
   },
   deltaChange: {
-    flexDirection: "row",
-    paddingBottom: 20
+    flexDirection: 'row',
+    paddingBottom: 20,
   },
   graphStyles: {
     height: 80,
-    paddingBottom: 5
+    paddingBottom: 5,
   },
   newNotice: {
-    color: "tomato",
-    fontWeight: "bold"
+    color: 'tomato',
+    fontWeight: 'bold',
   }
 });
