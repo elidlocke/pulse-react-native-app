@@ -70,7 +70,7 @@ const activityFeed = [
 const activityItem = {
   type: "Health",
   date: new Date().toDateString(),
-  details: "Dad didn't meet his step goal yesterday.",
+  details: "Dad didn't get enough exercise yesterday.",
   id: "010",
   iconName: Platform.OS === "ios" ? "ios-walk" : "directions-walk",
   iconType: Platform.OS === "ios" ? "ionicon" : "material-icons",

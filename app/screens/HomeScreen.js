@@ -90,8 +90,8 @@ class HeartChart extends React.Component {
           data={this.state.data}
           svg={{ stroke: 'tomato', strokeWidth: 3 }}
           showGrid={false}
-	  yMax={100}
-	  yMin={40}
+	  yMax={120}
+	  yMin={45}
         >
           <Grid svg={{ stroke: '#EEEEEE', strokeWidth: 0.5 }} />
         </LineChart>
