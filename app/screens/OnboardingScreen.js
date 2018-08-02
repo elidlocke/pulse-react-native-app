@@ -1,7 +1,7 @@
-import React from "react";
-import { View, Text, Image, Button } from "react-native";
-import Header from "../components/Header";
-import styles from "../styles/style";
+import React from 'react';
+import { Alert, View, Text, Image } from 'react-native';
+import { Icon, Button } from 'react-native-elements';
+import styles from '../styles/style';
 
 class OnboardingScreen extends React.Component {
   showApp()
@@ -12,27 +12,28 @@ class OnboardingScreen extends React.Component {
   render() {
     return (
       <View>
-        <Header />
-        <View style={styles.mainView}>
-          <Image
-            source={require('../../assets/images/HeartBeat.png')}
-            style={styles.onboardLogo}
-          />
-    <Text>
-      Welcome to Pulse
-    </Text>
-          <Text>
-            Some placeholder text that tells you all about what this app does.
-            Watch out, someone might read it.
-          </Text>
-          <Button
-            style={styles.buttonStyle}
-            title="Start"
-            onPress={() => {
-              this.showApp();
-            }}
-          />
+        <View style={styles.screenTitle}>
+        <View style={styles.logoContainer}>
+	    <Image
+	    source={require('../../assets/images/HeartBeat.png')}
+	    style={styles.onboardLogo}
+		/>
+	</View>
+	  <Text style={styles.titleText}>Welcome to Pulse.</Text>
+          <Text style={styles.infoText}>
+            We're here to help you moniter the heart health of the people you care about. 
+	    </Text>
         </View>
+        <View style={styles.buttonContainer} />
+        <Button
+          onPress={() => {
+	      Alert.alert('Fitbit Connected')
+              this.showApp();
+          }}
+          title="Sync Outpatient's Fitbit"
+          color="white"
+          buttonStyle={styles.buttonStyle}
+        />
       </View>
     );
   }

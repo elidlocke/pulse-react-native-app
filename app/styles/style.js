@@ -25,7 +25,12 @@ export default StyleSheet.create({
   },
   onboardLogo: {
     width: 100,
-    height: 100,
+    height: 110,
+  },
+  logoContainer: {
+    paddingTop: 100,
+    alignItems: 'center',
+    justifyContent: 'center'
   },
   activityWrapper: {
     borderTopWidth: 1,
