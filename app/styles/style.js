@@ -79,6 +79,11 @@ export default StyleSheet.create({
     fontSize: 28,
     color: 'gray',
   },
+  heartNumber: {
+    fontFamily: Platform.OS === 'ios' ? 'Helvetica-Light' : 'monospace',
+    fontSize: 12,
+    color: 'gray',
+  },
   infoText: {
     paddingTop: 10,
     fontFamily: Platform.OS === 'ios' ? 'Helvetica-Light' : 'monospace',

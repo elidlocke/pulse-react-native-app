@@ -84,12 +84,14 @@ class HeartChart extends React.Component {
   render() {
     return (
       <View>
-        <Text>{this.state.data[this.state.data.length - 1]}</Text>
+        <Text style={styles.heartNumber}>BPM: {this.state.data[this.state.data.length - 1]}</Text>
         <LineChart
           style={styles.graphStyles}
           data={this.state.data}
           svg={{ stroke: 'tomato', strokeWidth: 3 }}
           showGrid={false}
+	  yMax={100}
+	  yMin={40}
         >
           <Grid svg={{ stroke: '#EEEEEE', strokeWidth: 0.5 }} />
         </LineChart>
