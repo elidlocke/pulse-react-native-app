@@ -1,19 +1,26 @@
 import React from 'react';
-import { AppRegistry, StyleSheet, View, Text, Button, ScrollView } from 'react-native';
+import {
+  AppRegistry,
+  StyleSheet,
+  View,
+  Text,
+  Button,
+  ScrollView
+} from 'react-native';
 import { FontAwesome, Ionicons } from '@expo/vector-icons';
-import { createStackNavigator } from "react-navigation";
+import { createStackNavigator } from 'react-navigation';
 import { createBottomTabNavigator, BottomTabBar } from 'react-navigation-tabs';
-import { Icon } from 'react-native-elements'
-import styles from './app/styles/style'
-import Header from './app/components/Header'
-import OnboardingScreen from './app/screens/OnboardingScreen'
-import HomeScreen from './app/screens/HomeScreen'
-import NewsScreen from './app/screens/NewsScreen'
-import ScheduleScreen from './app/screens/ScheduleScreen'
-import TeamScreen from './app/screens/TeamScreen'
+import { Icon } from 'react-native-elements';
+import styles from './app/styles/style';
+import Header from './app/components/Header';
+import OnboardingScreen from './app/screens/OnboardingScreen';
+import HomeScreen from './app/screens/HomeScreen';
+import NewsScreen from './app/screens/NewsScreen';
+import ScheduleScreen from './app/screens/ScheduleScreen';
+import TeamScreen from './app/screens/TeamScreen';
 
-const RootStack =createBottomTabNavigator(
-{
+const RootStack = createBottomTabNavigator(
+  {
     News: NewsScreen,
     Home: HomeScreen,
     Schedule: ScheduleScreen,
@@ -21,7 +28,7 @@ const RootStack =createBottomTabNavigator(
   },
   {
     navigationOptions: ({ navigation }) => ({
-      tabBarIcon: ({focused, tintColor}) => {
+      tabBarIcon: ({ focused, tintColor }) => {
         const { routeName } = navigation.state;
         let iconName;
         let iconType;
@@ -47,7 +54,7 @@ const RootStack =createBottomTabNavigator(
     tabBarOptions: {
       activeTintColor: 'tomato',
       inactiveTintColor: 'gray'
-    },
+    }
   }
 );
 
@@ -59,20 +66,21 @@ class App extends React.Component {
     };
   }
 
-  changeView = () => 
-  {
+  changeView = () => {
     this.setState({
-      showApp : true
+      showApp: true
     });
-  }
+  };
 
   render() {
     return (
-    <View style={{flex : 1}}>
-      {
-        this.state.showApp ? <RootStack /> : <OnboardingScreen showApp={this.changeView}/>
-      }
-    </View>
+      <View style={{ flex: 1 }}>
+        {this.state.showApp ? (
+          <RootStack />
+        ) : (
+          <OnboardingScreen showApp={this.changeView} />
+        )}
+      </View>
     );
   }
 }
