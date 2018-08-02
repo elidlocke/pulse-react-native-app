@@ -1,13 +1,19 @@
 import React from 'react';
-import { createBottomTabNavigator } from 'react-navigation-tabs';
-import { Icon } from 'react-native-elements';
-import HomeScreen from './app/screens/HomeScreen';
-import NewsScreen from './app/screens/NewsScreen';
-import ScheduleScreen from './app/screens/ScheduleScreen';
-import TeamScreen from './app/screens/TeamScreen';
+import { AppRegistry, StyleSheet, View, Text, Button, ScrollView } from 'react-native';
+import { FontAwesome, Ionicons } from '@expo/vector-icons';
+import { createStackNavigator } from "react-navigation";
+import { createBottomTabNavigator, BottomTabBar } from 'react-navigation-tabs';
+import { Icon } from 'react-native-elements'
+import styles from './app/styles/style'
+import Header from './app/components/Header'
+import OnboardingScreen from './app/screens/OnboardingScreen'
+import HomeScreen from './app/screens/HomeScreen'
+import NewsScreen from './app/screens/NewsScreen'
+import ScheduleScreen from './app/screens/ScheduleScreen'
+import TeamScreen from './app/screens/TeamScreen'
 
-const RootStack = createBottomTabNavigator(
-  {
+const RootStack =createBottomTabNavigator(
+{
     News: NewsScreen,
     Home: HomeScreen,
     Schedule: ScheduleScreen,
@@ -41,12 +47,34 @@ const RootStack = createBottomTabNavigator(
     tabBarOptions: {
       activeTintColor: 'tomato',
       inactiveTintColor: 'gray'
-    }
+    },
   }
 );
 
-export default class App extends React.Component {
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      showApp: false
+    };
+  }
+
+  changeView = () => 
+  {
+    this.setState({
+      showApp : true
+    });
+  }
+
   render() {
-    return <RootStack />;
+    return (
+    <View style={{flex : 1}}>
+      {
+        this.state.showApp ? <RootStack /> : <OnboardingScreen showApp={this.changeView}/>
+      }
+    </View>
+    );
   }
 }
+
+export default App;
