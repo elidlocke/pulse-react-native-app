@@ -62,7 +62,10 @@ export default StyleSheet.create({
     marginBottom: 100,
   },
   screenTitle: {
-    padding: 50,
+    paddingTop: 50,
+    paddingLeft: 20,
+    paddingBottom: 50,
+    paddingRight: 20,
   },
   titleText: {
     fontFamily: Platform.OS === 'ios' ? 'TrebuchetMS' : 'monospace',
@@ -80,7 +83,7 @@ export default StyleSheet.create({
   },
   calendarImg: {
     width: 300,
-    height: 180,
+    height: 170,
   },
   calendarWrapper: {
     alignItems: 'center',
