@@ -42,7 +42,7 @@ class NewsFeed extends React.Component {
   componentDidMount() {
     this.state.newsfeed = this.interval = setInterval(
       () => this.addArticle(),
-      1500
+      1000
     );
   }
 

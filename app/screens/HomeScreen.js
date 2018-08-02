@@ -10,17 +10,23 @@ import awsConfig from '../../AppSync';
 
 Amplify.configure(awsConfig);
 
-async function fetchData() {
-  const ListHeartRate = `query listHeartRate {
-	  listHeartRates(limit:5) {
-	    items {
-		  bpm
+function sortFunction(a, b) {
+  return a.time - b.time;
+}
+
+async function fetchData(token) {
+  const ListHeartRate = `query listHeartRate
+	{
+	  listHeartRates(limit:600 ${token ? `, nextToken: "${token}"` : ``})
+	  {
+	    items
+	    {
 		  time
+		  bpm
 	    }
 	    nextToken
 	  }
 	}`;
-
   const allHeartRates = await API.graphql(graphqlOperation(ListHeartRate));
   return allHeartRates;
 }
@@ -28,11 +34,14 @@ async function fetchData() {
 class HeartChart extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { seconds: 0 };
+    this.state = { data: [], cache: [], nextToken: '' };
+    this.update();
   }
 
   componentDidMount() {
-    this.interval = setInterval(() => this.update(), 1000);
+    // TODO: Find better way to trigger events every X min
+    //this.interval = setInterval(() => this.update(), 600000);
+    this.timeInterval = setInterval(() => this.updateSeconds(), 1000);
   }
 
   componentWillUnmount() {
@@ -40,31 +49,45 @@ class HeartChart extends React.Component {
   }
 
   update() {
-    this.setState(prevState => ({
-      seconds: prevState.seconds + 1
-    }));
+    const dataPromise = fetchData(this.state.nextToken);
+    dataPromise
+      .then(r => {
+        const bpms = r.data.listHeartRates.items
+          .sort(sortFunction)
+          .map(k => k.bpm);
+        this.setState(prevState => {
+          return {
+            data:
+              prevState.data.length > 0 ? prevState.data : bpms.slice(0, 59),
+            cache: prevState.data.length > 0 ? bpms : bpms.slice(60),
+            nextToken: r.data.listHeartRates.nextToken
+          };
+        });
+      })
+      .catch(e => {
+        console.error(e);
+      });
+  }
+
+  updateSeconds() {
+    const data = this.state.data.slice(1);
+    data.push(this.state.cache.shift());
+    this.setState(prevState => {
+      return {
+        data: data,
+        cache: prevState.cache,
+        nextToken: prevState.nextToken
+      };
+    });
   }
 
   render() {
-    const data = Array.from({ length: 40 }, () =>
-      Math.floor(Math.random() * 40)
-    );
-    // const dataPromise = fetchData();
-    // dataPromise.then(
-    //   function(data) {
-    //     console.log(data);
-    //   },
-    //   function(error) {
-    //     console.error("oops");
-    //   }
-    // );
-
     return (
       <View>
-        <Text>{this.state.data}</Text>
+        <Text>{this.state.data[this.state.data.length - 1]}</Text>
         <LineChart
           style={styles.graphStyles}
-          data={data}
+          data={this.state.data}
           svg={{ stroke: 'tomato', strokeWidth: 3 }}
           showGrid={false}
         >
