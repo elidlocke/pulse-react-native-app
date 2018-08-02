@@ -154,7 +154,7 @@ class HomeScreen extends React.Component {
         <View style={styles.dataField}>
           <View style={styles.dashRiskWrapper}>
             <View style={styles.dashOverallRisk}>
-              <Text style={styles.dataTitle}> Overall Risk Factor.</Text>
+              <Text style={styles.dataTitle}>Overall Risk Factor.</Text>
               <Text style={styles.dashRisk}>{riskFactor}%</Text>
             </View>
             <View style={styles.deltaChanges}>

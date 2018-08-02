@@ -21,7 +21,7 @@ class OnboardingScreen extends React.Component {
 	</View>
 	  <Text style={styles.titleText}>Welcome to Pulse.</Text>
           <Text style={styles.infoText}>
-            We're here to help you moniter the heart health of the people you care about. 
+            We're here to help you monitor the heart health of the people you care about. 
 	    </Text>
         </View>
         <View style={styles.buttonContainer} />
